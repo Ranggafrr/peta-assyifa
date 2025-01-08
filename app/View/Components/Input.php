@@ -17,6 +17,7 @@ class Input extends Component
         public string|null $placeholder,
         public string $label,
         public bool $required = false,
+        public string $variant = 'default',
     ) {}
 
     /**

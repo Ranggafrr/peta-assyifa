@@ -3,27 +3,59 @@
 @tailwind utilities;
 
 body {
-    font-family: poppins;
+  font-family: poppins;
 }
-@layer base {
-    .is-error {
-        @apply text-red-600 border-red-600;
-    }
-}
+
 @layer components {
-    .form-input {
-        @apply py-2 px-4 block w-full border border-gray-200 rounded-lg text-sm focus:border-sky-700 focus:ring-0 focus:outline-none disabled:opacity-50 disabled:pointer-events-none;
-    }
-    .form-label {
-        @apply block text-xs font-medium text-zinc-700 mb-1;
-    }
-    .form-group {
-        @apply py-2 px-3 pe-11 block w-full border border-gray-200 shadow-sm rounded-e-lg text-sm focus:z-10 focus:border-sky-700 focus:ring-0 focus:outline-none disabled:opacity-50 disabled:pointer-events-none;
-    }
-    .form-group-label {
-        @apply px-4 inline-flex items-center min-w-fit rounded-s-md border border-e-0 border-gray-200 bg-gray-50 text-sm text-gray-500;
-    }
-    .form-select {
-        @apply py-2 px-4 pe-9 block w-full border border-gray-200 rounded-lg text-sm focus:border-sky-700 focus:ring-0 focus:outline-none disabled:opacity-50 disabled:pointer-events-none;
-    }
+  /* form class styling */
+  .form-input {
+    @apply py-2 px-4 block w-full border border-gray-200 rounded-lg text-sm focus:border-sky-700 focus:ring-0 focus:outline-none disabled:opacity-50 disabled:pointer-events-none;
+  }
+  .form-label {
+    @apply block text-xs font-medium text-zinc-700 mb-1;
+  }
+  .form-group {
+    @apply py-2 px-3 pe-11 block w-full border border-gray-200 shadow-sm rounded-e-lg text-sm focus:z-10 focus:border-sky-700 focus:ring-0 focus:outline-none disabled:opacity-50 disabled:pointer-events-none;
+  }
+  .form-group-label {
+    @apply px-4 inline-flex items-center min-w-fit rounded-s-md border border-e-0 border-gray-200 bg-gray-50 text-sm text-gray-500;
+  }
+  .form-select {
+    @apply py-2 px-4 pe-9 block w-full border border-gray-200 rounded-lg text-sm focus:border-sky-700 focus:ring-0 focus:outline-none disabled:opacity-50 disabled:pointer-events-none;
+  }
+  .form-leading-icon {
+    @apply py-2.5 px-4 ps-11 block w-full border border-gray-200 bg-gray-50 shadow-sm rounded-lg text-sm focus:z-10 focus:border-blue-500 focus:outline-none disabled:opacity-50 disabled:pointer-events-none;
+  }
+  .form-leading-icon {
+    @apply py-2.5 px-4 ps-11 block w-full border border-gray-200 bg-gray-50 shadow-sm rounded-lg text-sm focus:z-10 focus:border-blue-500 focus:outline-none disabled:opacity-50 disabled:pointer-events-none;
+  }
+  .is-error {
+    @apply border-red-600 bg-red-50;
+  }
+  /* alert class styling */
+  .alert-success {
+    @apply bg-teal-100 border border-teal-200 text-sm text-teal-800;
+  }
+  .alert-error {
+    @apply bg-red-100 border border-red-200 text-sm text-red-800;
+  }
+  /* button class styling */
+  .btn-primary {
+    @apply bg-sky-700 text-white text-xs py-2 px-3 rounded-lg font-medium;
+  }
+  .btn-outline-primary {
+    @apply bg-white text-sky-700 border border-sky-700 text-xs py-2 px-3 rounded-lg font-medium;
+  }
+  .btn-destructive {
+    @apply py-2 px-3 text-sm font-medium rounded-lg border border-transparent bg-red-600 text-white;
+  }
+  .btn-outline {
+    @apply py-2 px-3 text-xs font-medium rounded-lg border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50;
+  }
+  .table-head-row {
+    @apply px-4 py-3 text-start text-xs font-medium text-gray-500 uppercase;
+  }
+  .table-body-col {
+    @apply px-4 py-2.5 text-sm text-gray-800;
+  }
 }

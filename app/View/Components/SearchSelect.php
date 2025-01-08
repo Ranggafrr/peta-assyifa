@@ -11,7 +11,7 @@ class SearchSelect extends Component
     /**
      * Create a new component instance.
      */
-    public function __construct(public string $name, public string $label,  public array $options = [], public string $placeholder = 'Choose...', public bool $hasSearch = true, public bool $required = false,) {}
+    public function __construct(public string $name, public string $label,  public array $options = [], public string $placeholder = 'Choose...', public bool $hasSearch = true, public bool $required = false, public string|null $value) {}
 
     /**
      * Get the view / contents that represent the component.

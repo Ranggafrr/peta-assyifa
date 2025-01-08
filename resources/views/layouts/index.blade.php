@@ -7,9 +7,14 @@
     <div class="flex min-h-screen h-auto w-full overflow-hidden">
         <!-- Sidebar -->
         @include('layouts.sidebar')
-
         <!-- Main Content -->
-        <div class="w-full bg-gray-50">
+        <div class="relative w-full bg-gray-50">
+            @if (session('success'))
+                <x-alert type="success" :message="session('success')" />
+            @endif
+            @if (session('error'))
+                <x-alert type="error" :message="session('error')" />
+            @endif
             <!-- Fixed Navbar -->
             @include('layouts.navbar')
             @yield('content')
