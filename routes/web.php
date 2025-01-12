@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\AccessMenuController;
 use App\Http\Controllers\AccessSubMenuController;
+use App\Http\Controllers\GolonganDarahController;
+use App\Http\Controllers\SkillController;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\DPTController;
@@ -41,4 +43,18 @@ Route::resource('/dashboard/sub-menu', SubMenuController::class)->middleware('Lo
 Route::resource('/dashboard/access-menu', AccessMenuController::class)->middleware('LogUser');
 Route::resource('/dashboard/access-sub-menu', AccessSubMenuController::class)->middleware('LogUser');
 
+//izzan
+
+//data-dpt
 Route::resource('/dashboard/data-dpt', DPTController::class)->middleware('LogUser');
+Route::get('/data-dpt/export', [DPTController::class, 'saveToExcel'])->name('data-dpt.saveToExcel')->middleware('LogUser');
+
+//master-skill
+Route::resource('/dashboard/master-skill', SkillController::class)->middleware('LogUser');
+Route::get('/master-skill/export', [SkillController::class, 'saveToExcel'])->name('master-skill.saveToExcel')->middleware('LogUser');
+
+//master-golongan-darah
+Route::resource('/dashboard/master-golongan-darah', GolonganDarahController::class)->middleware('LogUser');
+Route::get('/master-golongan-darah/export', [GolonganDarahController::class, 'saveToExcel'])->name('master-golongan-darah.saveToExcel')->middleware('LogUser');
+
+//#################################
