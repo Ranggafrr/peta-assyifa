@@ -1,0 +1,43 @@
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+
+class AccessSubMenu extends Model
+{
+    // Tentukan nama tabel jika tidak mengikuti konvensi plural
+    protected $table = 'access_submenu'; // Contoh nama tabel
+
+    // Tentukan primary key jika tidak mengikuti konvensi id
+    protected $primaryKey = 'id';
+
+    // Tentukan atribut yang bisa diisi (mass assignable)
+    protected $fillable = [
+        'role_id',
+        'kode_submenu',
+        'status',
+        'created_by',
+        'updated_by',
+        'created_at',
+        'updated_at',
+    ];
+
+    // Tentukan apakah atribut timestamps otomatis diatur oleh Eloquent
+    public $timestamps = true;
+
+    // Jika kamu tidak ingin menggunakan created_at dan updated_at
+    // public $timestamps = false;
+
+    // Jika ingin memperlakukan atribut sebagai tanggal
+    protected $dates = [
+        'created_at',
+        'updated_at',
+    ];
+
+    public function subMenu(): BelongsTo
+    {
+        return $this->belongsTo(SubMenuModel::class, 'kode_submenu', 'kode_submenu');
+    }
+}
