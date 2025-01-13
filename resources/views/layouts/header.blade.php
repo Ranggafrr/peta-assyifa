@@ -18,13 +18,10 @@
     {{-- Choise.js --}}
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/choices.js@9.0.1/public/assets/styles/choices.min.css" />
     <script src="https://cdn.jsdelivr.net/npm/choices.js@9.0.1/public/assets/scripts/choices.min.js"></script>
-<<<<<<< HEAD
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
     <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
     <script src="https://npmcdn.com/flatpickr/dist/l10n/id.js"></script>
 
-=======
->>>>>>> 9053a7a6d95d4db3cafec68e7a30b50a14f9ac66
     <style>
         /* Chrome, Safari, Edge, Opera */
         input::-webkit-outer-spin-button,
@@ -38,8 +35,4 @@
             -moz-appearance: textfield;
         }
     </style>
-<<<<<<< HEAD
 </head>
-=======
-</head>
->>>>>>> 9053a7a6d95d4db3cafec68e7a30b50a14f9ac66

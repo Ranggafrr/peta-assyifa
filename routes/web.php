@@ -57,8 +57,4 @@ Route::get('/master-skill/export', [SkillController::class, 'saveToExcel'])->nam
 Route::resource('/dashboard/master-golongan-darah', GolonganDarahController::class)->middleware('LogUser');
 Route::get('/master-golongan-darah/export', [GolonganDarahController::class, 'saveToExcel'])->name('master-golongan-darah.saveToExcel')->middleware('LogUser');
 
-<<<<<<< HEAD
 //#################################
-=======
-//#################################
->>>>>>> 9053a7a6d95d4db3cafec68e7a30b50a14f9ac66

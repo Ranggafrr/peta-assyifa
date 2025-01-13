@@ -1,6 +1,5 @@
 @extends('layouts.index')
 @section('content')
-<<<<<<< HEAD
     @php
         use Carbon\Carbon;
         Carbon::setLocale('id');
@@ -119,105 +118,6 @@
                             <div class="mt-4">
                                 {{ $data->links() }}
                             </div>
-=======
-<div class="mx-5 mt-3 border bg-white rounded-lg py-5">
-    <div class="flex justify-between mx-5 items-center">
-        <p class="font-semibold text-zinc-800 text-lg">{{ $page }}</p>
-        <div class="flex gap-4">
-            <a href="{{ route('data-dpt.create') }}" class="btn-primary inline-flex gap-x-2"> <i data-lucide="plus"
-                    class="size-4"></i> Tambah
-                Data</a>
-            <a href="{{ route('data-dpt.saveToExcel') }}" class="btn-primary inline-flex gap-x-2"> <i data-lucide="save"
-                    class="size-4"></i> Save to Excel</a>
-            <a href="{{ route('menu.create') }}" class="btn-primary inline-flex gap-x-2"> <i data-lucide="import"
-                    class="size-4"></i>Import</a>
-        </div>
-    </div>
-    {{-- form filter --}}
-    <form action="" method="get" class="mx-5 mt-5">
-        <div class="w-1/4">
-            <x-search-input name='query' type="text" :value="$query" placeholder="Cari data..." icon="search" />
-        </div>
-    </form>
-    <div class="mx-5 mt-5">
-        <div class="flex flex-col">
-            <div class="-m-1.5 overflow-x-auto">
-                <div class="p-1.5 min-w-full inline-block align-middle">
-                    <div class="border  rounded-lg overflow-hidden">
-                        <table class="min-w-full divide-y divide-gray-200">
-                            <thead class="bg-gray-100">
-                                <tr>
-                                    <th scope="col" class="table-head-row">No</th>
-                                    <th scope="col" class="table-head-row">Nama</th>
-                                    <th scope="col" class="table-head-row">Jenis Kelamin</th>
-                                    <th scope="col" class="table-head-row">Tanggal Lahir</th>
-                                    <th scope="col" class="table-head-row">Dusun/Jalan Alamat</th>
-                                    <th scope="col" class="table-head-row">RT</th>
-                                    <th scope="col" class="table-head-row">RW</th>
-                                    <th scope="col" class="table-head-row">NIK</th>
-                                    <th scope="col" class="table-head-row">Nomor HP</th>
-                                    <th scope="col" class="table-head-row">Ket</th>
-                                    <th scope="col" class="table-head-row">ACT</th>
-                                </tr>
-                            </thead>
-                            <tbody class="divide-y divide-gray-200">
-                                @if ($data->isNotEmpty())
-                                    @foreach($data as $index => $item)
-                                        <tr>
-                                            <td class="table-body-col font-medium">{{ $index + 1 }}</td>
-                                            <td class="table-body-col">{{ $item->nama }}</td>
-                                            <td class="table-body-col">{{ $item->jenis_kelamin }}</td>
-                                            <td class="table-body-col">{{ $item->tanggal_lahir }}</td>
-                                            <td class="table-body-col">{{ $item->dusun_jalan_alamat }}</td>
-                                            <td class="table-body-col">{{ $item->rt }}</td>
-                                            <td class="table-body-col">{{ $item->rw }}</td>
-                                            <td class="table-body-col">{{ $item->nik }}</td>
-                                            <td class="table-body-col">{{ $item->nomor_hp }}</td>
-                                            <td class="table-body-col">{{ $item->remark }}</td> <!-- Menggunakan 'remark' sebagai kolom ket -->
-                                            <td class="table-body-col">
-                                                <div class="hs-dropdown relative inline-flex">
-                                                    <button id="hs-dropdown-custom-icon-trigger" type="button"
-                                                        class="hs-dropdown-toggle flex justify-center items-center size-9 text-sm font-semibold rounded-lg bg-white text-gray-800 shadow-sm hover:bg-gray-50 focus:outline-none focus:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none
-                                                        aria-haspopup="menu" aria-expanded="false" aria-label="Dropdown">
-                                                        <i data-lucide="ellipsis-vertical"
-                                                            class="flex-none size-4 text-gray-600"></i>
-                                                    </button>
-                                                    <div class="hs-dropdown-menu transition-[opacity,margin] duration hs-dropdown-open:opacity-100 opacity-0 hidden bg-white shadow-md rounded-lg mt-2 min-w-40 z-[60]"
-                                                        role="menu" aria-orientation="vertical"
-                                                        aria-labelledby="hs-dropdown-custom-icon-trigger">
-                                                        <div class="flex flex-col p-1 space-y-0.5">
-                                                            <a class="inline-flex items-center gap-x-3.5 py-2 px-3 w-full rounded-lg text-sm text-gray-800 hover:bg-gray-100 focus:outline-none focus:bg-gray-100"
-                                                                href="{{ route('data-dpt.edit', ['data_dpt' => $item->id_dpt]) }}">
-                                                                <i data-lucide="square-pen" class="size-4"></i> Edit
-                                                                Data
-                                                            </a>
-                                                            <a class="inline-flex items-center gap-x-3.5 py-2 px-3 w-full rounded-lg text-sm text-gray-800 hover:bg-gray-100 focus:outline-none focus:bg-gray-100"
-                                                                href="{{ route('data-dpt.show', ['data_dpt' => $item->id_dpt]) }}">
-                                                                <i data-lucide="eye" class="size-4"></i> Detail
-                                                                Data
-                                                            </a>
-                                                            <button
-                                                                class="inline-flex items-center w-full gap-x-3.5 py-2 px-3 rounded-lg text-sm text-red-600 hover:bg-gray-100 focus:outline-none focus:bg-gray-100"
-                                                                data-hs-overlay="#delete-modal" data-id="{{ $item->id_dpt }}">
-                                                                <i data-lucide="trash-2" class="size-4"></i> Hapus Data
-                                                            </button>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                        </tr>
-                                    @endforeach
-                                @else
-                                    <tr>
-                                        <td colspan="6" class="text-center text-sm py-2.5">Data Tidak Ditemukan</td>
-                                    </tr>
-                                @endif
-                            </tbody>
-                        </table>
-                        <!-- Pagination Links -->
-                        <div class="mt-4">
-                            {{ $data->links() }}
->>>>>>> 9053a7a6d95d4db3cafec68e7a30b50a14f9ac66
                         </div>
                     </div>
                 </div>

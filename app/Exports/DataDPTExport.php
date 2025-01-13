@@ -3,7 +3,6 @@
 namespace App\Exports;
 
 use App\Models\DptModel;
-<<<<<<< HEAD
 use Maatwebsite\Excel\Concerns\FromArray;
 use Maatwebsite\Excel\Concerns\WithHeadings;
 use Maatwebsite\Excel\Concerns\WithCustomStartCell;
@@ -45,19 +44,6 @@ class DataDPTExport implements FromArray, WithHeadings, WithCustomStartCell, Wit
         }, $data, array_keys($data));
 
         return $formattedData; // Mengembalikan data yang sudah diformat
-=======
-use Maatwebsite\Excel\Concerns\FromCollection;
-use Maatwebsite\Excel\Concerns\WithHeadings;
-
-class DataDPTExport implements FromCollection, WithHeadings
-{
-    /**
-     * @return \Illuminate\Support\Collection
-     */
-    public function collection()
-    {
-        return DptModel::select('id_dpt', 'nama', 'jenis_kelamin', 'tanggal_lahir', 'dusun_jalan_alamat', 'rt', 'rw', 'nik', 'nomor_hp', 'remark')->get();
->>>>>>> 9053a7a6d95d4db3cafec68e7a30b50a14f9ac66
     }
 
     public function headings(): array
@@ -73,7 +59,6 @@ class DataDPTExport implements FromCollection, WithHeadings
             'NIK',
             'Nomor HP',
             'Ket',
-<<<<<<< HEAD
         ];
     }
 
@@ -116,9 +101,6 @@ class DataDPTExport implements FromCollection, WithHeadings
                     ],
                 ]);
             },
-=======
-            // Add more columns as needed
->>>>>>> 9053a7a6d95d4db3cafec68e7a30b50a14f9ac66
         ];
     }
 }
