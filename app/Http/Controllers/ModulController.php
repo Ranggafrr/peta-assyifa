@@ -17,7 +17,11 @@ class ModulController extends Controller
     {
         $breadcrumbs = [
             ['name' => 'Dashboard', 'url' => route('dashboard')],
+<<<<<<< HEAD
             ['name' => 'Utility', 'url' => null],
+=======
+            ['name' => 'Master data', 'url' => null],
+>>>>>>> 9053a7a6d95d4db3cafec68e7a30b50a14f9ac66
             ['name' => 'Master modul', 'url' => null],
         ];
 
@@ -31,7 +35,11 @@ class ModulController extends Controller
         // Ambil hasil query
         $data = $query->paginate(10);
         return view('dashboard.master_modul.view-data', [
+<<<<<<< HEAD
             'modul' => 'Utility',
+=======
+            'modul' => 'Master Data',
+>>>>>>> 9053a7a6d95d4db3cafec68e7a30b50a14f9ac66
             'menu' => 'Master Modul',
             'page' => 'Master modul',
             'breadcrumbs' => $breadcrumbs,
@@ -47,12 +55,20 @@ class ModulController extends Controller
     {
         $breadcrumbs = [
             ['name' => 'Dashboard', 'url' => route('dashboard')],
+<<<<<<< HEAD
             ['name' => 'Utility', 'url' => null],
+=======
+            ['name' => 'Master data', 'url' => null],
+>>>>>>> 9053a7a6d95d4db3cafec68e7a30b50a14f9ac66
             ['name' => 'Master modul', 'url' => route('moduls.index')],
             ['name' => 'Tambah modul', 'url' => null],
         ];
         return view('dashboard.master_modul.view-add', [
+<<<<<<< HEAD
             'modul' => 'Utility',
+=======
+            'modul' => 'Master Data',
+>>>>>>> 9053a7a6d95d4db3cafec68e7a30b50a14f9ac66
             'menu' => 'Master Modul',
             'page' => 'Tambah modul',
             'breadcrumbs' => $breadcrumbs,
@@ -90,14 +106,22 @@ class ModulController extends Controller
     {
         $breadcrumbs = [
             ['name' => 'Dashboard', 'url' => route('dashboard')],
+<<<<<<< HEAD
             ['name' => 'Utility', 'url' => null],
+=======
+            ['name' => 'Master data', 'url' => null],
+>>>>>>> 9053a7a6d95d4db3cafec68e7a30b50a14f9ac66
             ['name' => 'Master modul', 'url' => route('moduls.index')],
             ['name' => 'Update modul', 'url' => null],
         ];
 
         $data = ModulsModel::where('id', $id)->first();
         return view('dashboard.master_modul.view-update', [
+<<<<<<< HEAD
             'modul' => 'Utility',
+=======
+            'modul' => 'Master Data',
+>>>>>>> 9053a7a6d95d4db3cafec68e7a30b50a14f9ac66
             'menu' => 'Master Modul',
             'page' => 'Update modul',
             'breadcrumbs' => $breadcrumbs,

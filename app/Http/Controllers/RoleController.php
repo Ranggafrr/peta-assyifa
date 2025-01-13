@@ -17,7 +17,11 @@ class RoleController extends Controller
     {
         $breadcrumbs = [
             ['name' => 'Dashboard', 'url' => route('dashboard')],
+<<<<<<< HEAD
             ['name' => 'Utility', 'url' => null],
+=======
+            ['name' => 'Master data', 'url' => null],
+>>>>>>> 9053a7a6d95d4db3cafec68e7a30b50a14f9ac66
             ['name' => 'Master role', 'url' => null],
         ];
 
@@ -31,7 +35,11 @@ class RoleController extends Controller
         // Ambil hasil query
         $data = $query->paginate(10);
         return view('dashboard.master_role.view-data', [
+<<<<<<< HEAD
             'modul' => 'Utility',
+=======
+            'modul' => 'Master Data',
+>>>>>>> 9053a7a6d95d4db3cafec68e7a30b50a14f9ac66
             'menu' => 'Master Role',
             'page' => 'Master role',
             'breadcrumbs' => $breadcrumbs,
@@ -47,12 +55,20 @@ class RoleController extends Controller
     {
         $breadcrumbs = [
             ['name' => 'Dashboard', 'url' => route('dashboard')],
+<<<<<<< HEAD
             ['name' => 'Utility', 'url' => null],
+=======
+            ['name' => 'Master data', 'url' => null],
+>>>>>>> 9053a7a6d95d4db3cafec68e7a30b50a14f9ac66
             ['name' => 'Master role', 'url' => route('role.index')],
             ['name' => 'Tambah role', 'url' => null],
         ];
         return view('dashboard.master_role.view-add', [
+<<<<<<< HEAD
             'modul' => 'Utility',
+=======
+            'modul' => 'Master Data',
+>>>>>>> 9053a7a6d95d4db3cafec68e7a30b50a14f9ac66
             'menu' => 'Master Role',
             'page' => 'Tambah role',
             'breadcrumbs' => $breadcrumbs,
@@ -90,14 +106,22 @@ class RoleController extends Controller
     {
         $breadcrumbs = [
             ['name' => 'Dashboard', 'url' => route('dashboard')],
+<<<<<<< HEAD
             ['name' => 'Utility', 'url' => null],
+=======
+            ['name' => 'Master data', 'url' => null],
+>>>>>>> 9053a7a6d95d4db3cafec68e7a30b50a14f9ac66
             ['name' => 'Master role', 'url' => route('role.index')],
             ['name' => 'Update role', 'url' => null],
         ];
 
         $data = RoleModel::where('id', $id)->first();
         return view('dashboard.master_role.view-update', [
+<<<<<<< HEAD
            'modul' => 'Utility',
+=======
+           'modul' => 'Master Data',
+>>>>>>> 9053a7a6d95d4db3cafec68e7a30b50a14f9ac66
             'menu' => 'Master Role',
             'page' => 'Update role',
             'breadcrumbs' => $breadcrumbs,

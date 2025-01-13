@@ -18,7 +18,11 @@ class SubMenuController extends Controller
     {
         $breadcrumbs = [
             ['name' => 'Dashboard', 'url' => route('dashboard')],
+<<<<<<< HEAD
             ['name' => 'Utility', 'url' => null],
+=======
+            ['name' => 'Master data', 'url' => null],
+>>>>>>> 9053a7a6d95d4db3cafec68e7a30b50a14f9ac66
             ['name' => 'Master sub menu', 'url' => null],
         ];
 
@@ -33,7 +37,11 @@ class SubMenuController extends Controller
         // Ambil hasil query
         $data = $query->paginate(10);
         return view('dashboard.master_submenu.view-data', [
+<<<<<<< HEAD
             'modul' => 'Utility',
+=======
+            'modul' => 'Master Data',
+>>>>>>> 9053a7a6d95d4db3cafec68e7a30b50a14f9ac66
             'menu' => 'Master Sub Menu',
             'page' => 'Master sub menu',
             'breadcrumbs' => $breadcrumbs,
@@ -49,12 +57,20 @@ class SubMenuController extends Controller
     {
         $breadcrumbs = [
             ['name' => 'Dashboard', 'url' => route('dashboard')],
+<<<<<<< HEAD
             ['name' => 'Utility', 'url' => null],
+=======
+            ['name' => 'Master data', 'url' => null],
+>>>>>>> 9053a7a6d95d4db3cafec68e7a30b50a14f9ac66
             ['name' => 'Master sub menu', 'url' => route('sub-menu.index')],
             ['name' => 'Tambah sub menu', 'url' => null],
         ];
         return view('dashboard.master_submenu.view-add', [
+<<<<<<< HEAD
             'modul' => 'Utility',
+=======
+            'modul' => 'Master Data',
+>>>>>>> 9053a7a6d95d4db3cafec68e7a30b50a14f9ac66
             'menu' => 'Master Sub Menu',
             'page' => 'Tambah sub menu',
             'breadcrumbs' => $breadcrumbs,
@@ -94,14 +110,22 @@ class SubMenuController extends Controller
     {
         $breadcrumbs = [
             ['name' => 'Dashboard', 'url' => route('dashboard')],
+<<<<<<< HEAD
             ['name' => 'Utility', 'url' => null],
+=======
+            ['name' => 'Master data', 'url' => null],
+>>>>>>> 9053a7a6d95d4db3cafec68e7a30b50a14f9ac66
             ['name' => 'Master sub menu', 'url' => route('sub-menu.index')],
             ['name' => 'Update sub menu', 'url' => null],
         ];
 
         $data = SubMenuModel::where('id', $id)->first();
         return view('dashboard.master_submenu.view-update', [
+<<<<<<< HEAD
             'modul' => 'Utility',
+=======
+            'modul' => 'Master Data',
+>>>>>>> 9053a7a6d95d4db3cafec68e7a30b50a14f9ac66
             'menu' => 'Master Sub Menu',
             'page' => 'Update sub menu',
             'breadcrumbs' => $breadcrumbs,

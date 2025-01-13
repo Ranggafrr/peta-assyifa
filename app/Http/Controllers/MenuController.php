@@ -19,7 +19,11 @@ class MenuController extends Controller
     {
         $breadcrumbs = [
             ['name' => 'Dashboard', 'url' => route('dashboard')],
+<<<<<<< HEAD
             ['name' => 'Utility', 'url' => null],
+=======
+            ['name' => 'Master data', 'url' => null],
+>>>>>>> 9053a7a6d95d4db3cafec68e7a30b50a14f9ac66
             ['name' => 'Master menu', 'url' => null],
         ];
 
@@ -33,7 +37,11 @@ class MenuController extends Controller
         // Ambil hasil query
         $data = $query->paginate(10);
         return view('dashboard.master_menu.view-data', [
+<<<<<<< HEAD
             'modul' => 'Utility',
+=======
+            'modul' => 'Master Data',
+>>>>>>> 9053a7a6d95d4db3cafec68e7a30b50a14f9ac66
             'menu' => 'Master Menu',
             'page' => 'Master menu',
             'breadcrumbs' => $breadcrumbs,
@@ -49,12 +57,20 @@ class MenuController extends Controller
     {
         $breadcrumbs = [
             ['name' => 'Dashboard', 'url' => route('dashboard')],
+<<<<<<< HEAD
             ['name' => 'Utility', 'url' => null],
+=======
+            ['name' => 'Master data', 'url' => null],
+>>>>>>> 9053a7a6d95d4db3cafec68e7a30b50a14f9ac66
             ['name' => 'Master menu', 'url' => route('menu.index')],
             ['name' => 'Tambah menu', 'url' => null],
         ];
         return view('dashboard.master_menu.view-add', [
+<<<<<<< HEAD
             'modul' => 'Utility',
+=======
+            'modul' => 'Master Data',
+>>>>>>> 9053a7a6d95d4db3cafec68e7a30b50a14f9ac66
             'menu' => 'Master Menu',
             'page' => 'Tambah menu',
             'breadcrumbs' => $breadcrumbs,
@@ -93,14 +109,22 @@ class MenuController extends Controller
     {
         $breadcrumbs = [
             ['name' => 'Dashboard', 'url' => route('dashboard')],
+<<<<<<< HEAD
             ['name' => 'Utility', 'url' => null],
+=======
+            ['name' => 'Master data', 'url' => null],
+>>>>>>> 9053a7a6d95d4db3cafec68e7a30b50a14f9ac66
             ['name' => 'Master menu', 'url' => route('menu.index')],
             ['name' => 'Update menu', 'url' => null],
         ];
 
         $data = MenuModel::where('id', $id)->first();
         return view('dashboard.master_menu.view-update', [
+<<<<<<< HEAD
             'modul' => 'Utility',
+=======
+            'modul' => 'Master Data',
+>>>>>>> 9053a7a6d95d4db3cafec68e7a30b50a14f9ac66
             'menu' => 'Master Menu',
             'page' => 'Update menu',
             'breadcrumbs' => $breadcrumbs,

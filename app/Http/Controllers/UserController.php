@@ -21,7 +21,11 @@ class UserController extends Controller
   {
     $breadcrumbs = [
       ['name' => 'Dashboard', 'url' => route('dashboard')],
+<<<<<<< HEAD
       ['name' => 'Utility', 'url' => null],
+=======
+      ['name' => 'Master data', 'url' => null],
+>>>>>>> 9053a7a6d95d4db3cafec68e7a30b50a14f9ac66
       ['name' => 'Master user', 'url' => null],
     ];
 
@@ -41,7 +45,11 @@ class UserController extends Controller
     // Ambil hasil query
     $data = $query->paginate(10);
     return view('dashboard.master_user.view-data', [
+<<<<<<< HEAD
       'modul' => 'Utility',
+=======
+      'modul' => 'Master Data',
+>>>>>>> 9053a7a6d95d4db3cafec68e7a30b50a14f9ac66
       'menu' => 'Master User',
       'page' => 'Master user',
       'breadcrumbs' => $breadcrumbs,
@@ -57,12 +65,20 @@ class UserController extends Controller
   {
     $breadcrumbs = [
       ['name' => 'Dashboard', 'url' => route('dashboard')],
+<<<<<<< HEAD
       ['name' => 'Utility', 'url' => null],
+=======
+      ['name' => 'Master data', 'url' => null],
+>>>>>>> 9053a7a6d95d4db3cafec68e7a30b50a14f9ac66
       ['name' => 'Master user', 'url' => route('users.index')],
       ['name' => 'Tambah user', 'url' => null],
     ];
     return view('dashboard.master_user.view-add', [
+<<<<<<< HEAD
       'modul' => 'Utility',
+=======
+      'modul' => 'Master Data',
+>>>>>>> 9053a7a6d95d4db3cafec68e7a30b50a14f9ac66
       'menu' => 'Master User',
       'page' => 'Tambah user',
       'breadcrumbs' => $breadcrumbs,
@@ -107,7 +123,11 @@ class UserController extends Controller
   {
     $breadcrumbs = [
       ['name' => 'Dashboard', 'url' => route('dashboard')],
+<<<<<<< HEAD
       ['name' => 'Utility', 'url' => null],
+=======
+      ['name' => 'Master data', 'url' => null],
+>>>>>>> 9053a7a6d95d4db3cafec68e7a30b50a14f9ac66
       ['name' => 'Master user', 'url' => route('role.index')],
       ['name' => 'Update user', 'url' => null],
     ];
@@ -115,7 +135,11 @@ class UserController extends Controller
     $user_id = Crypt::decryptString($id);
     $data = User::where('user_id', $user_id)->first();
     return view('dashboard.master_user.view-update', [
+<<<<<<< HEAD
       'modul' => 'Utility',
+=======
+      'modul' => 'Master Data',
+>>>>>>> 9053a7a6d95d4db3cafec68e7a30b50a14f9ac66
       'menu' => 'Master User',
       'page' => 'Update user',
       'breadcrumbs' => $breadcrumbs,
