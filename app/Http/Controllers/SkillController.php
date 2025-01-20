@@ -3,9 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Exports\MasterSkillExport;
+use App\Http\Requests\SkillRequest;
 use App\Models\SkillModel;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Maatwebsite\Excel\Facades\Excel;
+use Session;
 
 class SkillController extends Controller
 {
@@ -16,8 +19,8 @@ class SkillController extends Controller
     {
         $breadcrumbs = [
             ['name' => 'Dashboard', 'url' => route('dashboard')],
-            ['name' => 'Master Skill', 'url' => null],
-            ['name' => 'Master Skill', 'url' => null],
+            ['name' => 'Master Data', 'url' => null],
+            ['name' => 'Data Skill', 'url' => null],
         ];
 
         $search = $request->get('query');
@@ -30,8 +33,8 @@ class SkillController extends Controller
         $data = $query->paginate(10);
         return view('dashboard.master_skill.view-data', [
             'modul' => 'Master Data',
-            'menu' => 'Master Skill',
-            'page' => 'Master Skill',
+            'menu' => 'Data Skill',
+            'page' => 'Data Skill',
             'breadcrumbs' => $breadcrumbs,
             'data' => $data,
             'query' => $search,
@@ -46,12 +49,12 @@ class SkillController extends Controller
         $breadcrumbs = [
             ['name' => 'Dashboard', 'url' => route('dashboard')],
             ['name' => 'Master data', 'url' => null],
-            ['name' => 'Master Skill', 'url' => route('master-skill.index')],
+            ['name' => 'Data Skill', 'url' => route('master-skill.index')],
             ['name' => 'Tambah Data Skill', 'url' => null],
         ];
         return view('dashboard.master_skill.view-add', [
             'modul' => 'Master Data',
-            'menu' => 'Master Skill',
+            'menu' => 'Data Skill',
             'page' => 'Tambah Data Skill',
             'breadcrumbs' => $breadcrumbs,
         ]);
@@ -60,21 +63,16 @@ class SkillController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(SkillRequest $request)
     {
-        $request->validate([
-            'nama_skill' => 'required|string|max:100', // Maksimal 100 karakter
-            'created_by' => 'nullable|string|max:20', // Maksimal 20 karakter
-        ]);
-
-        SkillModel::create([
-            'nama_skill' => $request->nama_skill,
-            'remark' => $request->remark,
-            'created_by' => $request->created_by,
-        ]);
-
-        return redirect()->route('data-dpt.index')->with('success', 'Data berhasil disimpan.');
-
+        try {
+            $validatedData = $request->validated();
+            $storeData = array_merge($validatedData, ['created_by' => Session::get('user')->nama_lengkap, 'created_at' => Carbon::now()]);
+            SkillModel::create($storeData);
+            return redirect()->route('master-skill.index')->with('success', 'Data Skill berhasil disimpan.');
+        } catch (\Exception $e) {
+            return redirect()->route('master-skill.index')->with('error', 'Terjadi kesalahan saat menyimpan data: ' . $e->getMessage());
+        }
     }
 
     /**
@@ -93,7 +91,7 @@ class SkillController extends Controller
         $breadcrumbs = [
             ['name' => 'Dashboard', 'url' => route('dashboard')],
             ['name' => 'Master data', 'url' => null],
-            ['name' => 'Master Skill', 'url' => route('master-skill.index')],
+            ['name' => 'Data Skill', 'url' => route('master-skill.index')],
             ['name' => 'Edit Data Skill', 'url' => null],
         ];
 
@@ -101,7 +99,7 @@ class SkillController extends Controller
 
         return view('dashboard.master_skill.view-update', [
             'modul' => 'Master Data',
-            'menu' => 'Master Skill',
+            'menu' => 'Data Skill',
             'page' => 'Edit Data Skill',
             'breadcrumbs' => $breadcrumbs,
             'data' => $data,
@@ -113,25 +111,14 @@ class SkillController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        $request->validate([
-            'nama_skill' => 'required|string|max:100', // Maksimal 100 karakter
-            'remark' => 'nullable|string',
-            'update_by' => 'nullable|string|max:20', // Maksimal 20 karakter
-        ]);
-
-        $data = SkillModel::find($id);
-
-        if (!$data) {
-            return redirect()->back()->with('error', 'Data tidak ditemukan.');
+        try {
+            $validatedData = $request->validated();
+            $updateData = array_merge($validatedData, ['updated_by' => Session::get('user')->nama_lengkap, 'updated_at' => Carbon::now()]);
+            SkillModel::where('id', $id)->update($updateData);
+            return redirect()->route('master-skill.index')->with('success', 'Data Skill berhasil diupdate.');
+        } catch (\Exception $e) {
+            return redirect()->route('master-skill.index')->with('error', 'Terjadi kesalahan saat mengupdate data: ' . $e->getMessage());
         }
-
-        $data->update([
-            'nama_skill' => $request->nama_skill,
-            'remark' => $request->remark,
-            'update_by' => $request->update_by,
-        ]);
-
-        return redirect()->route('master-skill.index')->with('success', 'Data berhasil diupdate.');
     }
 
     /**

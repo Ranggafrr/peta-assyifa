@@ -16,10 +16,6 @@
     "dependencies": {
         "chart.js": "^4.4.7",
         "choices.js": "^11.0.3",
-<<<<<<< HEAD
-        "flatpickr": "^4.6.13",
-=======
->>>>>>> 9053a7a6d95d4db3cafec68e7a30b50a14f9ac66
         "lucide": "^0.469.0",
         "preline": "^2.6.0"
     }

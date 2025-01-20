@@ -21,9 +21,6 @@
             <div class="w-full">
                 <x-Input type="text" name="remark" label="Remark" :required="false" />
             </div>
-            <div class="w-full">
-                <x-Input type="text" name="created_by" label="Created By" :required="false" />
-            </div>
         </div>
     </form>
 </div>

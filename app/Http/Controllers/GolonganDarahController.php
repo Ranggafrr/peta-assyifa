@@ -3,9 +3,12 @@
 namespace App\Http\Controllers;
 
 use App\Exports\GolonganDarahExport;
+use App\Http\Requests\GolonganDarahRequest;
 use App\Models\GolonganDarahModel;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Maatwebsite\Excel\Facades\Excel;
+use Session;
 
 class GolonganDarahController extends Controller
 {
@@ -16,25 +19,29 @@ class GolonganDarahController extends Controller
     {
         $breadcrumbs = [
             ['name' => 'Dashboard', 'url' => route('dashboard')],
-            ['name' => 'Master Golongan Darah', 'url' => null],
-            ['name' => 'Master Golongan Darah', 'url' => null],
+            ['name' => 'Master Data', 'url' => null],
+            ['name' => 'Data Golongan Darah', 'url' => null],
         ];
 
-        $search = $request->get('query');
+        // Ambil nilai golongan darah dari request
+        $golongan_darah = $request->get('golongan_darah');
         $query = GolonganDarahModel::query();
 
-        if ($search) {
-            $query->where('golongan_darah', 'like', '%' . $search . '%');
+        // Jika golongan darah dipilih, filter query berdasarkan nilai tersebut
+        if ($golongan_darah && in_array($golongan_darah, ['A', 'B', 'AB', 'O', 'A+', 'A-', 'B+', 'B-', 'AB+', 'AB-', 'O+', 'O-'])) {
+            $query->where('golongan_darah', $golongan_darah);
         }
+
         // Ambil hasil query
         $data = $query->paginate(10);
+
         return view('dashboard.master_golongan_darah.view-data', [
             'modul' => 'Master Data',
-            'menu' => 'Master Golongan Darah',
-            'page' => 'Master Golongan Darah',
+            'menu' => 'Data Golongan Darah',
+            'page' => 'Data Golongan Darah',
             'breadcrumbs' => $breadcrumbs,
             'data' => $data,
-            'query' => $search,
+            'golongan_darah' => $golongan_darah,
         ]);
     }
 
@@ -46,12 +53,12 @@ class GolonganDarahController extends Controller
         $breadcrumbs = [
             ['name' => 'Dashboard', 'url' => route('dashboard')],
             ['name' => 'Master data', 'url' => null],
-            ['name' => 'Master Golongan Darah', 'url' => route('master-golongan-darah.index')],
+            ['name' => 'Data Golongan Darah', 'url' => route('master-golongan-darah.index')],
             ['name' => 'Tambah Data Golongan Darah', 'url' => null],
         ];
         return view('dashboard.master_golongan_darah.view-add', [
             'modul' => 'Master Data',
-            'menu' => 'Master Golongan Darah',
+            'menu' => 'Data Golongan Darah',
             'page' => 'Tambah Data Golongan Darah',
             'breadcrumbs' => $breadcrumbs,
         ]);
@@ -60,16 +67,17 @@ class GolonganDarahController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(GolonganDarahRequest $request)
     {
-        $validatedData = $request->validate([
-            'golongan_darah' => 'required|string'
-        ]);
 
-        GolonganDarahModel::create($validatedData);
-
-        return redirect()->route('master-golongan-darah.index')
-            ->with('success', 'Data golongan darah berhasil ditambahkan');
+        try {
+            $validatedData = $request->validated();
+            $storeData = array_merge($validatedData, ['created_by' => Session::get('user')->nama_lengkap, 'created_at' => Carbon::now()]);
+            GolonganDarahModel::create($storeData);
+            return redirect()->route('master-golongan-darah.index')->with('success', 'Data Golongan Darah berhasil disimpan.');
+        } catch (\Exception $e) {
+            return redirect()->route('master-golongan-darah.index')->with('error', 'Terjadi kesalahan saat menyimpan data: ' . $e->getMessage());
+        }
     }
 
     /**
@@ -85,11 +93,11 @@ class GolonganDarahController extends Controller
      */
     public function edit(string $id)
     {
-        
+
         $breadcrumbs = [
             ['name' => 'Dashboard', 'url' => route('dashboard')],
             ['name' => 'Master data', 'url' => null],
-            ['name' => 'Master Golongan Darah', 'url' => route('master-golongan-darah.index')],
+            ['name' => 'Data Golongan Darah', 'url' => route('master-golongan-darah.index')],
             ['name' => 'Edit Data Golongan Darah', 'url' => null],
         ];
 
@@ -97,7 +105,7 @@ class GolonganDarahController extends Controller
 
         return view('dashboard.master_golongan_darah.view-update', [
             'modul' => 'Master Data',
-            'menu' => 'Master Golongan Darah',
+            'menu' => 'Data Golongan Darah',
             'page' => 'Edit Data Golongan Darah',
             'breadcrumbs' => $breadcrumbs,
             'data' => $data,
@@ -107,24 +115,16 @@ class GolonganDarahController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(GolonganDarahRequest $request, string $id)
     {
-        $request->validate([
-            'golongan_darah' => 'required|string'
-        ]);
-
-        $data = GolonganDarahModel::find($id);
-
-        if (!$data) {
-            return redirect()->back()->with('error', 'Data tidak ditemukan.');
+        try {
+            $validatedData = $request->validated();
+            $updateData = array_merge($validatedData, ['updated_by' => Session::get('user')->nama_lengkap, 'updated_at' => Carbon::now()]);
+            GolonganDarahModel::where('id', $id)->update($updateData);
+            return redirect()->route('master-golongann-darah.index')->with('success', 'Data Golongan Darah berhasil diupdate.');
+        } catch (\Exception $e) {
+            return redirect()->route('master-golongan-darah.index')->with('error', 'Terjadi kesalahan saat mengupdate data: ' . $e->getMessage());
         }
-
-        $data->update([
-            'golongan_darah' => $request->golongan_darah,
-            'remark' => $request->remark,
-            'update_by' => $request->update_by,
-        ]);
-        return redirect()->route('master-golongan-darah.index')->with('success', 'Data berhasil diupdate.');
     }
 
     /**
@@ -137,7 +137,7 @@ class GolonganDarahController extends Controller
             GolonganDarahModel::where('id', $id)->delete();
 
             // Redirect dengan pesan sukses
-            return redirect()->route('master-skill.index')->with('success', 'Data Golongan Darah berhasil dihapus.');
+            return redirect()->route('master-golongan-darah.index')->with('success', 'Data Golongan Darah berhasil dihapus.');
         } catch (\Exception $e) {
             // Penanganan error lain
             return redirect()->back()->with('error', 'Terjadi kesalahan saat menghapus data.');

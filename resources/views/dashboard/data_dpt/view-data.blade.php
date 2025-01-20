@@ -124,67 +124,6 @@
             </div>
         </div>
     </div>
-<<<<<<< HEAD
-
-
-    {{-- dialog delete data --}}
-    <div id="delete-modal"
-        class="hs-overlay [--overlay-backdrop:static] hidden size-full fixed top-40 start-0 z-[100] overflow-x-hidden overflow-y-auto pointer-events-none"
-        role="dialog" tabindex="-1" aria-labelledby="hs-static-backdrop-modal-label" data-hs-overlay-keyboard="false">
-        <div
-            class="hs-overlay-open:mt-7 hs-overlay-open:opacity-100 hs-overlay-open:duration-500 mt-0 opacity-0 ease-out transition-all sm:max-w-lg sm:w-full m-3 sm:mx-auto">
-            <div class="flex flex-col bg-white border shadow-sm rounded-xl pointer-events-auto">
-                <div class="flex justify-between items-center py-3 px-4">
-                    <h3 id="hs-static-backdrop-modal-label" class="font-semibold text-zinc-700">
-                        Apa kamu yakin?
-                    </h3>
-                </div>
-                <div class="px-4 py-2 overflow-y-auto">
-                    <p class="mt-1 text-zinc-800 text-sm">
-                        Tindakan ini tidak dapat dibatalkan. Ini akan menghapus data secara
-                        permanen.
-                    </p>
-                </div>
-                <div class="flex justify-end items-center gap-x-2 py-3 px-4">
-                    <button type="button" class="btn-outline inline-flex items-center gap-x-2 focus:outline-none"
-                        data-hs-overlay="#delete-modal">
-                        Batalkan
-                    </button>
-                    <form id="delete-form" method="post" action="">
-                        @method('DELETE')
-                        @csrf
-                        <button type="submit"
-                            class="btn-destructive inline-flex items-center gap-x-2 text-xs hover:bg-red-700 focus:outline-none">
-                            Hapus Data
-                        </button>
-                    </form>
-                </div>
-            </div>
-        </div>
-    </div>
-
-
-    {{-- Script untuk inject id data & route delete ke form dialog delete --}}
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            const deleteButtons = document.querySelectorAll('[data-hs-overlay="#delete-modal"]');
-            const deleteForm = document.getElementById('delete-form');
-            deleteButtons.forEach(button => {
-                button.addEventListener('click', () => {
-                    const dataId = button.getAttribute(
-                        'data-id'); // Mengambil ID pengguna dari atribut data-id
-                    // Menggunakan route() helper untuk menghasilkan URL DELETE berdasarkan route name
-                    const actionUrl = `{{ route('data-dpt.destroy', ':data_dpt') }}`.replace(
-                        ':data_dpt',
-                        dataId);
-                    deleteForm.setAttribute('action', actionUrl); // Set action URL di form
-                });
-            });
-        });
-    </script>
-
-@endsection
-=======
 </div>
 
 
@@ -244,4 +183,3 @@
 </script>
 
 @endsection
->>>>>>> 9053a7a6d95d4db3cafec68e7a30b50a14f9ac66

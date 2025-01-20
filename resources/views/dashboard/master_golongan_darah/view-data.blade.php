@@ -7,16 +7,31 @@
             <a href="{{ route('master-golongan-darah.create') }}" class="btn-primary inline-flex gap-x-2"> <i
                     data-lucide="plus" class="size-4"></i> Tambah
                 Data</a>
-            <a href="{{ route('master-golongan-darah.saveToExcel') }}" class="btn-primary inline-flex gap-x-2"> <i
+            <a href="{{ route('master-golongan-darah.saveToExcel') }}" class="btn-success inline-flex gap-x-2"> <i
                     data-lucide="save" class="size-4"></i> Save to Excel</a>
-            <a href="{{ route('menu.create') }}" class="btn-primary inline-flex gap-x-2"> <i data-lucide="import"
+            <a href="{{ route('menu.create') }}" class="btn-outline-primary inline-flex gap-x-2"> <i data-lucide="import"
                     class="size-4"></i>Import</a>
         </div>
     </div>
     {{-- form filter --}}
     <form action="" method="get" class="mx-5 mt-5">
         <div class="w-1/4">
-            <x-search-input name='query' type="text" :value="$query" placeholder="Cari data..." icon="search" />
+            <select class="form-select" onchange="this.form.submit()" name="golongan_darah">
+                <option value="" disabled selected>Pilih golongan darah</option>
+                <option {{ $golongan_darah == 'all' ? 'selected' : '' }} value="all">Semua</option>
+                <option {{ $golongan_darah == 'A' ? 'selected' : '' }} value="A">A</option>
+                <option {{ $golongan_darah == 'B' ? 'selected' : '' }} value="B">B</option>
+                <option {{ $golongan_darah == 'AB' ? 'selected' : '' }} value="AB">AB</option>
+                <option {{ $golongan_darah == 'O' ? 'selected' : '' }} value="O">O</option>
+                <option {{ $golongan_darah == 'A+' ? 'selected' : '' }} value="A+">A+</option>
+                <option {{ $golongan_darah == 'A-' ? 'selected' : '' }} value="A-">A-</option>
+                <option {{ $golongan_darah == 'B+' ? 'selected' : '' }} value="B+">B+</option>
+                <option {{ $golongan_darah == 'B-' ? 'selected' : '' }} value="B-">B-</option>
+                <option {{ $golongan_darah == 'AB+' ? 'selected' : '' }} value="AB+">AB+</option>
+                <option {{ $golongan_darah == 'AB-' ? 'selected' : '' }} value="AB-">AB-</option>
+                <option {{ $golongan_darah == 'O+' ? 'selected' : '' }} value="O+">O+</option>
+                <option {{ $golongan_darah == 'O-' ? 'selected' : '' }} value="O-">O-</option>
+            </select>
         </div>
     </form>
     <div class="mx-5 mt-5">

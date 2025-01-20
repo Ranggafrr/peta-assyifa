@@ -46,15 +46,12 @@ body {
   .btn-outline-primary {
     @apply bg-white text-sky-700 border border-sky-700 text-xs py-2 px-3 rounded-lg font-medium;
   }
-<<<<<<< HEAD
   .btn-success {
     @apply bg-teal-700 text-white text-xs py-2 px-3 rounded-lg font-medium;
   }
   .btn-outline-success {
     @apply bg-white text-teal-700 border border-teal-700 text-xs py-2 px-3 rounded-lg font-medium;
   }
-=======
->>>>>>> 9053a7a6d95d4db3cafec68e7a30b50a14f9ac66
   .btn-destructive {
     @apply py-2 px-3 text-sm font-medium rounded-lg border border-transparent bg-red-600 text-white;
   }

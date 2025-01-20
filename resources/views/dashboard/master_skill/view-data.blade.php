@@ -7,9 +7,9 @@
             <a href="{{ route('master-skill.create') }}" class="btn-primary inline-flex gap-x-2"> <i data-lucide="plus"
                     class="size-4"></i> Tambah
                 Data</a>
-            <a href="{{ route('master-skill.saveToExcel') }}" class="btn-primary inline-flex gap-x-2"> <i data-lucide="save"
+            <a href="{{ route('master-skill.saveToExcel') }}" class="btn-success inline-flex gap-x-2"> <i data-lucide="save"
                     class="size-4"></i> Save to Excel</a>
-            <a href="{{ route('menu.create') }}" class="btn-primary inline-flex gap-x-2"> <i data-lucide="import"
+            <a href="{{ route('menu.create') }}" class="btn-outline-primary inline-flex gap-x-2"> <i data-lucide="import"
                     class="size-4"></i>Import</a>
         </div>
     </div>

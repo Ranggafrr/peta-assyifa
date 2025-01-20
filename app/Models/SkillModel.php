@@ -14,7 +14,7 @@ class SkillModel extends Model
         'remark',
         'created_by',
         'created_at',
-        'update_by',
+        'updated_by',
         'update_at',
     ];
 

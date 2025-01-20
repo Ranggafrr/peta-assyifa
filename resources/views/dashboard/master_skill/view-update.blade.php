@@ -21,10 +21,6 @@
                 <x-Input type="text" name="remark" label="Remark" :required="false"
                     value="{{ old('remark', $data->remark) }}" />
             </div>
-            <div class="w-full">
-                <x-Input type="text" name="update_by" label="Update By" :required="false"
-                    value="{{ old('update_by', $data->update_by) }}" />
-            </div>
         </div>
     </form>
 </div>
