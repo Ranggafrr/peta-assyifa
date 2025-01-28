@@ -59,7 +59,7 @@ class MasterSkillExport implements FromArray, WithHeadings, WithCustomStartCell,
         return [
             AfterSheet::class => function (AfterSheet $event) {
                 // Merge cell untuk judul dari A2 sampai J2
-                $event->sheet->getDelegate()->mergeCells('A2:J2');
+                $event->sheet->getDelegate()->mergeCells('A2:C2');
 
                 // Menempatkan teks "Laporan Data DPT" di A2
                 $event->sheet->setCellValue('A2', 'Laporan Data Skill');
@@ -75,7 +75,7 @@ class MasterSkillExport implements FromArray, WithHeadings, WithCustomStartCell,
                     ],
                 ]);
                 // Menambahkan border dan warna latar belakang abu-abu pada header
-                $event->sheet->getStyle('A3:J3')->applyFromArray([
+                $event->sheet->getStyle('A3:C3')->applyFromArray([
                     'font' => [
                         'bold' => true,
                     ],

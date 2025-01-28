@@ -33,7 +33,7 @@ class DPTRequest extends FormRequest
             'kabupaten' => 'nullable|string', // Maksimal 20 karakter
             'propinsi' => 'nullable|string', // Maksimal 20 karakter
             'tps' => 'nullable|string', // Maksimal 20 karakter
-            'remark' => 'nullable|string', // Maksimal 20 karakter
+            'remark' => 'nullable', // Maksimal 20 karakter
             'nik' => 'nullable|string|min:16|max:16', // Harus 16 karakter
             'nomor_hp' => 'nullable|string|max:50|regex:/^[0-9]{10,15}$/', // Format nomor telepon
         ];

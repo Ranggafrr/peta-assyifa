@@ -22,7 +22,8 @@ class GolonganDarahRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'golongan_darah' => 'required|string'
+            'golongan_darah' => 'required|string',
+            'remark' => 'nullable',
         ];
     }
 

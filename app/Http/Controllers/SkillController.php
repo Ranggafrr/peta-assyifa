@@ -109,7 +109,7 @@ class SkillController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, string $id)
+    public function update(SkillRequest $request, string $id)
     {
         try {
             $validatedData = $request->validated();
@@ -131,15 +131,18 @@ class SkillController extends Controller
             SkillModel::where('id', $id)->delete();
 
             // Redirect dengan pesan sukses
-            return redirect()->route('master-skill.index')->with('success', 'Data pengguna berhasil dihapus.');
+            return redirect()->route('master-skill.index')->with('success', 'Data Skill berhasil dihapus.');
         } catch (\Exception $e) {
             // Penanganan error lain
             return redirect()->back()->with('error', 'Terjadi kesalahan saat menghapus data.');
         }
     }
 
-    public function saveToExcel()
+    public function saveToExcel(Request $request)
     {
-        return Excel::download(new MasterSkillExport, 'master_skill.xlsx');
+        $nama_skill = $request->input('nama_skill'); // Jenis kelamin
+        $query = $request->input('query'); // Pencarian
+    
+        return Excel::download(new MasterSkillExport($nama_skill, $query), 'laporan_data_skill_' . Carbon::now()->format('Y_m_d_H_i_s') . '.xlsx');
     }
 }

@@ -24,17 +24,18 @@ class SkillRequest extends FormRequest
         return [
             'nama_skill' => 'required|string|max:100', // Maksimal 100 karakter
             'created_by' => 'nullable|string|max:20', // Maksimal 20 karakter
+            'remark' => 'nullable',
         ];
     }
 
     public function messages(): array
-{
-    return [
-        'nama_skill.required' => 'Nama skill harus diisi.',
-        'nama_skill.string' => 'Nama skill tidak boleh mengandung angka.',
-        'nama_skill.max' => 'Nama skill maksimal 100 karakter.',
-        'created_by.string' => 'Created by tidak boleh mengandung angka.',
-        'created_by.max' => 'Created by maksimal 20 karakter.',
-    ];
-}
+    {
+        return [
+            'nama_skill.required' => 'Nama skill harus diisi.',
+            'nama_skill.string' => 'Nama skill tidak boleh mengandung angka.',
+            'nama_skill.max' => 'Nama skill maksimal 100 karakter.',
+            'created_by.string' => 'Created by tidak boleh mengandung angka.',
+            'created_by.max' => 'Created by maksimal 20 karakter.',
+        ];
+    }
 }

@@ -21,7 +21,7 @@
                     :required="true" />
             </div>
             <div class="w-full">
-                <x-Input type="text" name="remark" label="Remark" :required="false" />
+                <x-Input type="text" name="remark" label="Caatan" :required="false" />
             </div>
         </div>
     </form>

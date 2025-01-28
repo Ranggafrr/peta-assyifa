@@ -60,7 +60,7 @@
                     <x-Input type="text" name="tps" label="TPS" :required="false" :value="$data->tps" />
                 </div>
                 <div class="w-full">
-                    <x-Textarea type="text" name="remark" label="Remark" :required="false" :rows="3"
+                    <x-Textarea type="text" name="remark" label="Catatan" :required="false" :rows="3"
                         :value="$data->remark" />
                 </div>
             </div>

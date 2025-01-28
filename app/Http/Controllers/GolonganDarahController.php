@@ -144,8 +144,10 @@ class GolonganDarahController extends Controller
         }
     }
 
-    public function saveToExcel()
+    public function saveToExcel(Request $request)
     {
-        return Excel::download(new GolonganDarahExport, 'golongan_darah.xlsx');
+        $golongan_darah = $request->input('golongan_darah');
+    
+        return Excel::download(new GolonganDarahExport($golongan_darah), 'laporan_data_dpt_' . Carbon::now()->format('Y_m_d_H_i_s') . '.xlsx');
     }
 }

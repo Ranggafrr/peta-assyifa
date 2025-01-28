@@ -19,7 +19,7 @@
                 <x-Input type="text" name="nama_skill" label="Nama Skill" :required="true" />
             </div>
             <div class="w-full">
-                <x-Input type="text" name="remark" label="Remark" :required="false" />
+                <x-Input type="text" name="remark" label="Catatan" :required="false" />
             </div>
         </div>
     </form>

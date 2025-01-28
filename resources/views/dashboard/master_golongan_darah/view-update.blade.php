@@ -20,7 +20,7 @@
                     :value="old('golongan_darah', $data->golongan_darah)" />
             </div>
             <div class="w-full">
-                <x-Input type="text" name="remark" label="Remark" :required="false"
+                <x-Input type="text" name="remark" label="Catatan" :required="false"
                     value="{{ old('remark', $data->remark) }}" />
             </div>
         </div>

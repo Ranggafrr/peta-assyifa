@@ -2,7 +2,10 @@
 
 use App\Http\Controllers\AccessMenuController;
 use App\Http\Controllers\AccessSubMenuController;
+use App\Http\Controllers\DataPendidikanController;
 use App\Http\Controllers\GolonganDarahController;
+use App\Http\Controllers\PekerjaanController;
+use App\Http\Controllers\PendidikanController;
 use App\Http\Controllers\SkillController;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\AuthController;
@@ -56,5 +59,11 @@ Route::get('/master-skill/export', [SkillController::class, 'saveToExcel'])->nam
 //master-golongan-darah
 Route::resource('/dashboard/master-golongan-darah', GolonganDarahController::class)->middleware('LogUser');
 Route::get('/master-golongan-darah/export', [GolonganDarahController::class, 'saveToExcel'])->name('master-golongan-darah.saveToExcel')->middleware('LogUser');
+
+Route::resource('/dashboard/data-pendidikan', PendidikanController::class)->middleware('LogUser');
+Route::get('/data-pendidikan/export', [PendidikanController::class, 'saveToExcel'])->name('data-pendidikan.saveToExcel')->middleware('LogUser');
+
+Route::resource('/dashboard/data-pekerjaan', PekerjaanController::class)->middleware('LogUser');
+Route::get('/data-pekerjaan/export', [PekerjaanController::class, 'saveToExcel'])->name('data-pekerjaan.saveToExcel')->middleware('LogUser');
 
 //#################################
