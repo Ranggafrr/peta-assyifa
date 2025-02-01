@@ -8,7 +8,7 @@ use App\Models\DataPropinsiModel;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Maatwebsite\Excel\Facades\Excel;
-use Session;
+use Illuminate\Support\Facades\Session;
 
 class DataPropinsiController extends Controller
 {
@@ -144,4 +144,3 @@ class DataPropinsiController extends Controller
         return Excel::download(new DataPropinsiExport(), 'laporan_data_propinsi_' . Carbon::now()->format('Y_m_d_H_i_s') . '.xlsx');
     }
 }
-    

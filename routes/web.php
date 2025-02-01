@@ -5,15 +5,14 @@ use App\Http\Controllers\AccessSubMenuController;
 use App\Http\Controllers\DataDesaController;
 use App\Http\Controllers\DataKabupatenKotaController;
 use App\Http\Controllers\DataKecamatanController;
-use App\Http\Controllers\DataPendidikanController;
 use App\Http\Controllers\DataPropinsiController;
 use App\Http\Controllers\DataRWController;
 use App\Http\Controllers\GolonganDarahController;
 use App\Http\Controllers\PekerjaanController;
 use App\Http\Controllers\PendidikanController;
 use App\Http\Controllers\SkillController;
-use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\DataRTController;
 use App\Http\Controllers\DPTController;
 use App\Http\Controllers\MenuController;
 use App\Http\Controllers\ModulController;
@@ -78,16 +77,16 @@ Route::resource('/dashboard/data-propinsi', DataPropinsiController::class)->midd
 Route::get('/data-propinsi/export', [DataPropinsiController::class, 'saveToExcel'])->name('data-propinsi.saveToExcel')->middleware('LogUser');
 
 Route::resource('/dashboard/data-kabupaten-kota', DataKabupatenKotaController::class)->middleware('LogUser');
-Route::get('/data-kabupaten-kota/export', [DataKabupatenKotaController::class, 'saveToExcel'])->name('data-pekerjaan.saveToExcel')->middleware('LogUser');
+Route::get('/data-kabupaten-kota/export', [DataKabupatenKotaController::class, 'saveToExcel'])->name('data-kabupaten-kota.saveToExcel')->middleware('LogUser');
 
 Route::resource('/dashboard/data-kecamatan', DataKecamatanController::class)->middleware('LogUser');
-Route::get('/data-kecamatan/export', [DataKecamatanController::class, 'saveToExcel'])->name('data-pekerjaan.saveToExcel')->middleware('LogUser');
+Route::get('/data-kecamatan/export', [DataKecamatanController::class, 'saveToExcel'])->name('data-kecamatan.saveToExcel')->middleware('LogUser');
 
 Route::resource('/dashboard/data-desa', DataDesaController::class)->middleware('LogUser');
-Route::get('/data-desa/export', [DataDesaController::class, 'saveToExcel'])->name('data-pekerjaan.saveToExcel')->middleware('LogUser');
+Route::get('/data-desa/export', [DataDesaController::class, 'saveToExcel'])->name('data-desa.saveToExcel')->middleware('LogUser');
 
 Route::resource('/dashboard/data-rw', DataRWController::class)->middleware('LogUser');
-Route::get('/data-rw/export', [DataRWController::class, 'saveToExcel'])->name('data-pekerjaan.saveToExcel')->middleware('LogUser');
+Route::get('/data-rw/export', [DataRWController::class, 'saveToExcel'])->name('data-rw.saveToExcel')->middleware('LogUser');
 
-Route::resource('/dashboard/data-rt', DataRWController::class)->middleware('LogUser');
-Route::get('/data-rt/export', [DataRWController::class, 'saveToExcel'])->name('data-pekerjaan.saveToExcel')->middleware('LogUser');
+Route::resource('/dashboard/data-rt', DataRTController::class)->middleware('LogUser');
+Route::get('/data-rt/export', [DataRTController::class, 'saveToExcel'])->name('data-rt.saveToExcel')->middleware('LogUser');

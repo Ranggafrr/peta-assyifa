@@ -74,3 +74,67 @@
 2025-01-30T02:43:11.886648Z 0 [System] [MY-013602] [Server] Channel mysql_main configured to support TLS. Encrypted connections are now supported for this channel.
 2025-01-30T02:43:11.960418Z 0 [System] [MY-011323] [Server] X Plugin ready for connections. Bind-address: '::' port: 33060
 2025-01-30T02:43:11.960718Z 0 [System] [MY-010931] [Server] C:\laragon\bin\mysql\mysql-8.0.30-winx64\bin\mysqld: ready for connections. Version: '8.0.30'  socket: ''  port: 3306  MySQL Community Server - GPL.
+2025-01-30T06:14:35.439606Z 0 [Warning] [MY-010097] [Server] Insecure configuration for --secure-file-priv: Current value does not restrict location of generated files. Consider setting it to a valid, non-empty path.
+2025-01-30T06:14:35.439657Z 0 [Warning] [MY-010918] [Server] 'default_authentication_plugin' is deprecated and will be removed in a future release. Please use authentication_policy instead.
+2025-01-30T06:14:35.439687Z 0 [System] [MY-010116] [Server] D:\laragon\bin\mysql\mysql-8.0.30-winx64\bin\mysqld (mysqld 8.0.30) starting as process 5184
+2025-01-30T06:14:35.499125Z 1 [System] [MY-013576] [InnoDB] InnoDB initialization has started.
+2025-01-30T06:14:36.370570Z 1 [System] [MY-013577] [InnoDB] InnoDB initialization has ended.
+2025-01-30T06:14:36.566876Z 0 [System] [MY-010229] [Server] Starting XA crash recovery...
+2025-01-30T06:14:36.570784Z 0 [System] [MY-010232] [Server] XA crash recovery finished.
+2025-01-30T06:14:36.677289Z 0 [Warning] [MY-013829] [Server] Missing data directory for ICU regular expressions: D:\laragon\bin\mysql\mysql-8.0.30-winx64\lib\private\.
+2025-01-30T06:14:36.706147Z 0 [Warning] [MY-010068] [Server] CA certificate ca.pem is self signed.
+2025-01-30T06:14:36.706428Z 0 [System] [MY-013602] [Server] Channel mysql_main configured to support TLS. Encrypted connections are now supported for this channel.
+2025-01-30T06:14:36.755531Z 0 [System] [MY-011323] [Server] X Plugin ready for connections. Bind-address: '::' port: 33060
+2025-01-30T06:14:36.755607Z 0 [System] [MY-010931] [Server] D:\laragon\bin\mysql\mysql-8.0.30-winx64\bin\mysqld: ready for connections. Version: '8.0.30'  socket: ''  port: 3306  MySQL Community Server - GPL.
+2025-01-30T08:49:01.608848Z 179 [System] [MY-013172] [Server] Received SHUTDOWN from user root. Shutting down mysqld (Version: 8.0.30).
+2025-01-30T08:49:01.610078Z 0 [System] [MY-013105] [Server] D:\laragon\bin\mysql\mysql-8.0.30-winx64\bin\mysqld: Normal shutdown.
+2025-01-30T08:49:02.841373Z 0 [System] [MY-010910] [Server] D:\laragon\bin\mysql\mysql-8.0.30-winx64\bin\mysqld: Shutdown complete (mysqld 8.0.30)  MySQL Community Server - GPL.
+2025-01-31T02:53:08.815574Z 0 [Warning] [MY-010097] [Server] Insecure configuration for --secure-file-priv: Current value does not restrict location of generated files. Consider setting it to a valid, non-empty path.
+2025-01-31T02:53:08.817698Z 0 [Warning] [MY-010918] [Server] 'default_authentication_plugin' is deprecated and will be removed in a future release. Please use authentication_policy instead.
+2025-01-31T02:53:08.817970Z 0 [System] [MY-010116] [Server] D:\laragon\bin\mysql\mysql-8.0.30-winx64\bin\mysqld (mysqld 8.0.30) starting as process 6976
+2025-01-31T02:53:08.942792Z 1 [System] [MY-013576] [InnoDB] InnoDB initialization has started.
+2025-01-31T02:53:09.505089Z 1 [System] [MY-013577] [InnoDB] InnoDB initialization has ended.
+2025-01-31T02:53:10.140486Z 0 [Warning] [MY-013829] [Server] Missing data directory for ICU regular expressions: D:\laragon\bin\mysql\mysql-8.0.30-winx64\lib\private\.
+2025-01-31T02:53:10.199959Z 0 [Warning] [MY-010068] [Server] CA certificate ca.pem is self signed.
+2025-01-31T02:53:10.200291Z 0 [System] [MY-013602] [Server] Channel mysql_main configured to support TLS. Encrypted connections are now supported for this channel.
+2025-01-31T02:53:10.266744Z 0 [System] [MY-011323] [Server] X Plugin ready for connections. Bind-address: '::' port: 33060
+2025-01-31T02:53:10.266832Z 0 [System] [MY-010931] [Server] D:\laragon\bin\mysql\mysql-8.0.30-winx64\bin\mysqld: ready for connections. Version: '8.0.30'  socket: ''  port: 3306  MySQL Community Server - GPL.
+2025-01-31T04:56:28.197909Z 305 [System] [MY-013172] [Server] Received SHUTDOWN from user root. Shutting down mysqld (Version: 8.0.30).
+2025-01-31T04:56:28.200946Z 0 [System] [MY-013105] [Server] D:\laragon\bin\mysql\mysql-8.0.30-winx64\bin\mysqld: Normal shutdown.
+2025-01-31T04:56:30.211018Z 0 [Warning] [MY-010909] [Server] D:\laragon\bin\mysql\mysql-8.0.30-winx64\bin\mysqld: Forcing close of thread 208  user: 'root'.
+2025-01-31T04:56:31.409544Z 0 [System] [MY-010910] [Server] D:\laragon\bin\mysql\mysql-8.0.30-winx64\bin\mysqld: Shutdown complete (mysqld 8.0.30)  MySQL Community Server - GPL.
+2025-01-31T04:56:36.563902Z 0 [Warning] [MY-010097] [Server] Insecure configuration for --secure-file-priv: Current value does not restrict location of generated files. Consider setting it to a valid, non-empty path.
+2025-01-31T04:56:36.563954Z 0 [Warning] [MY-010918] [Server] 'default_authentication_plugin' is deprecated and will be removed in a future release. Please use authentication_policy instead.
+2025-01-31T04:56:36.563988Z 0 [System] [MY-010116] [Server] D:\laragon\bin\mysql\mysql-8.0.30-winx64\bin\mysqld (mysqld 8.0.30) starting as process 4456
+2025-01-31T04:56:36.654829Z 1 [System] [MY-013576] [InnoDB] InnoDB initialization has started.
+2025-01-31T04:56:37.131437Z 1 [System] [MY-013577] [InnoDB] InnoDB initialization has ended.
+2025-01-31T04:56:37.503128Z 0 [Warning] [MY-013829] [Server] Missing data directory for ICU regular expressions: D:\laragon\bin\mysql\mysql-8.0.30-winx64\lib\private\.
+2025-01-31T04:56:37.550758Z 0 [Warning] [MY-010068] [Server] CA certificate ca.pem is self signed.
+2025-01-31T04:56:37.551023Z 0 [System] [MY-013602] [Server] Channel mysql_main configured to support TLS. Encrypted connections are now supported for this channel.
+2025-01-31T04:56:37.651981Z 0 [System] [MY-011323] [Server] X Plugin ready for connections. Bind-address: '::' port: 33060
+2025-01-31T04:56:37.652094Z 0 [System] [MY-010931] [Server] D:\laragon\bin\mysql\mysql-8.0.30-winx64\bin\mysqld: ready for connections. Version: '8.0.30'  socket: ''  port: 3306  MySQL Community Server - GPL.
+2025-01-31T23:56:31.672610Z 0 [Warning] [MY-010097] [Server] Insecure configuration for --secure-file-priv: Current value does not restrict location of generated files. Consider setting it to a valid, non-empty path.
+2025-01-31T23:56:31.672889Z 0 [Warning] [MY-010918] [Server] 'default_authentication_plugin' is deprecated and will be removed in a future release. Please use authentication_policy instead.
+2025-01-31T23:56:31.672925Z 0 [System] [MY-010116] [Server] D:\laragon\bin\mysql\mysql-8.0.30-winx64\bin\mysqld (mysqld 8.0.30) starting as process 12540
+2025-01-31T23:56:31.781451Z 1 [System] [MY-013576] [InnoDB] InnoDB initialization has started.
+2025-01-31T23:56:32.495818Z 1 [System] [MY-013577] [InnoDB] InnoDB initialization has ended.
+2025-01-31T23:56:32.820111Z 0 [System] [MY-010229] [Server] Starting XA crash recovery...
+2025-01-31T23:56:32.826844Z 0 [System] [MY-010232] [Server] XA crash recovery finished.
+2025-01-31T23:56:32.932986Z 0 [Warning] [MY-013829] [Server] Missing data directory for ICU regular expressions: D:\laragon\bin\mysql\mysql-8.0.30-winx64\lib\private\.
+2025-01-31T23:56:32.975431Z 0 [Warning] [MY-010068] [Server] CA certificate ca.pem is self signed.
+2025-01-31T23:56:32.975791Z 0 [System] [MY-013602] [Server] Channel mysql_main configured to support TLS. Encrypted connections are now supported for this channel.
+2025-01-31T23:56:33.051915Z 0 [System] [MY-011323] [Server] X Plugin ready for connections. Bind-address: '::' port: 33060
+2025-01-31T23:56:33.051977Z 0 [System] [MY-010931] [Server] D:\laragon\bin\mysql\mysql-8.0.30-winx64\bin\mysqld: ready for connections. Version: '8.0.30'  socket: ''  port: 3306  MySQL Community Server - GPL.
+2025-02-01T01:06:52.575943Z 9 [System] [MY-013172] [Server] Received SHUTDOWN from user root. Shutting down mysqld (Version: 8.0.30).
+2025-02-01T01:06:52.577161Z 0 [System] [MY-013105] [Server] D:\laragon\bin\mysql\mysql-8.0.30-winx64\bin\mysqld: Normal shutdown.
+2025-02-01T01:06:53.277655Z 0 [System] [MY-010910] [Server] D:\laragon\bin\mysql\mysql-8.0.30-winx64\bin\mysqld: Shutdown complete (mysqld 8.0.30)  MySQL Community Server - GPL.
+2025-02-01T03:19:13.905641Z 0 [Warning] [MY-010097] [Server] Insecure configuration for --secure-file-priv: Current value does not restrict location of generated files. Consider setting it to a valid, non-empty path.
+2025-02-01T03:19:13.906052Z 0 [Warning] [MY-010918] [Server] 'default_authentication_plugin' is deprecated and will be removed in a future release. Please use authentication_policy instead.
+2025-02-01T03:19:13.906089Z 0 [System] [MY-010116] [Server] D:\laragon\bin\mysql\mysql-8.0.30-winx64\bin\mysqld (mysqld 8.0.30) starting as process 13760
+2025-02-01T03:19:13.960313Z 1 [System] [MY-013576] [InnoDB] InnoDB initialization has started.
+2025-02-01T03:19:14.304048Z 1 [System] [MY-013577] [InnoDB] InnoDB initialization has ended.
+2025-02-01T03:19:14.637687Z 0 [Warning] [MY-013829] [Server] Missing data directory for ICU regular expressions: D:\laragon\bin\mysql\mysql-8.0.30-winx64\lib\private\.
+2025-02-01T03:19:14.655825Z 0 [Warning] [MY-010068] [Server] CA certificate ca.pem is self signed.
+2025-02-01T03:19:14.656640Z 0 [System] [MY-013602] [Server] Channel mysql_main configured to support TLS. Encrypted connections are now supported for this channel.
+2025-02-01T03:19:14.754598Z 0 [System] [MY-010931] [Server] D:\laragon\bin\mysql\mysql-8.0.30-winx64\bin\mysqld: ready for connections. Version: '8.0.30'  socket: ''  port: 3306  MySQL Community Server - GPL.
+2025-02-01T03:19:14.754603Z 0 [System] [MY-011323] [Server] X Plugin ready for connections. Bind-address: '::' port: 33060
