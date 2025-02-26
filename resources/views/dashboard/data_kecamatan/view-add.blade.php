@@ -17,6 +17,7 @@
         </div>
         <div class="grid grid-cols-4 gap-4 m-5 pb-4">
           <div class="w-full">
+<<<<<<< HEAD
               <x-Input type="text" name="kode_kecamatan" label="Kode Kecamatan" :required="true" />
           </div>
           <div class="w-full">
@@ -27,6 +28,19 @@
           </div>
           <div class="w-full">
             <x-Input type="text" name="remark" label="Remark" :required="false" />
+=======
+              <x-Input type="text" name="kode_kecamatan" label="Kode kecamatan" :required="true" />
+          </div>
+          <div class="w-full">
+              <x-Input type="text" name="nama_kecamatan" label="Nama kecamatan" :required="true" />
+          </div>
+          <div class="w-full">
+            <x-search-select name="kode_kabupaten_kota" label="Kabupaten" :options="$districtList" placeholder="Pilih kabupaten..."
+                :hasSearch="true" :required="true" />
+        </div>
+          <div class="w-full">
+            <x-Textarea type="text" rows="3" name="remark" label="Catatan" :required="false" />
+>>>>>>> a984a0b (fix import data)
         </div>
       </div>
     </form>

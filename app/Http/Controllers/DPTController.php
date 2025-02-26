@@ -9,6 +9,10 @@ use Illuminate\Http\Request;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\Session;
 use Maatwebsite\Excel\Facades\Excel;
+<<<<<<< HEAD
+=======
+use App\Imports\DPTImport;
+>>>>>>> a984a0b (fix import data)
 
 class DPTController extends Controller
 {
@@ -148,7 +152,33 @@ class DPTController extends Controller
     {
         $gender = $request->input('gender'); // Jenis kelamin
         $query = $request->input('query'); // Pencarian
+<<<<<<< HEAD
     
         return Excel::download(new DataDPTExport($gender, $query), 'laporan_data_dpt_' . Carbon::now()->format('Y_m_d_H_i_s') . '.xlsx');
     }
+=======
+
+        return Excel::download(new DataDPTExport($gender, $query), 'laporan_data_dpt_' . Carbon::now()->format('Y_m_d_H_i_s') . '.xlsx');
+    }
+
+    public function import(Request $request)
+    {
+        $request->validate([
+            'data_dpt' => 'required|mimes:xlsx,csv,xls',
+        ]);
+
+        Excel::import(new DPTImport, $request->file('data_dpt'));
+
+        return redirect()->route('data-dpt.index')->with('success', 'Data berhasil diimport.');
+    }
+    public function download()
+    {
+        $filePath = storage_path("app/public/template-excel/template_data-dpt.xlsx");
+        if (!file_exists($filePath)) {
+            abort(404, 'File tidak ditemukan');
+        }
+
+        return response()->download($filePath);
+    }
+>>>>>>> a984a0b (fix import data)
 }

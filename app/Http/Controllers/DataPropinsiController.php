@@ -4,6 +4,10 @@ namespace App\Http\Controllers;
 
 use App\Exports\DataPropinsiExport;
 use App\Http\Requests\DataPropinsiRequest;
+<<<<<<< HEAD
+=======
+use App\Imports\ProvinsiImport;
+>>>>>>> a984a0b (fix import data)
 use App\Models\DataPropinsiModel;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -143,4 +147,27 @@ class DataPropinsiController extends Controller
     {
         return Excel::download(new DataPropinsiExport(), 'laporan_data_propinsi_' . Carbon::now()->format('Y_m_d_H_i_s') . '.xlsx');
     }
+<<<<<<< HEAD
+=======
+    
+    public function import(Request $request)
+    {
+        $request->validate([
+            'data_excel' => 'required|mimes:xlsx,csv,xls',
+        ]);
+
+        Excel::import(new ProvinsiImport, $request->file('data_excel'));
+
+        return redirect()->route('data-propinsi.index')->with('success', 'Data provinsi berhasil diimport.');
+    }
+    public function download()
+    {
+        $filePath = storage_path("app/public/template-excel/template_data-provinsi.xlsx");
+        if (!file_exists($filePath)) {
+            abort(404, 'File tidak ditemukan');
+        }
+
+        return response()->download($filePath);
+    }
+>>>>>>> a984a0b (fix import data)
 }

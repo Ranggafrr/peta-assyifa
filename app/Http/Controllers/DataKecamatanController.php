@@ -4,6 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Exports\DataKecamatanExport;
 use App\Http\Requests\DataKecamatanRequest;
+<<<<<<< HEAD
+=======
+use App\Imports\KecamatanImport;
+use App\Models\DataKabupatenKotaModel;
+>>>>>>> a984a0b (fix import data)
 use App\Models\DataKecamatanModel;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
@@ -24,12 +29,22 @@ class DataKecamatanController extends Controller
         ];
 
         $search = $request->get('query');
+<<<<<<< HEAD
         $query = DataKecamatanModel::query();
 
         if ($search) {
             $query->where('nama_kecamatan', 'like', '%' . $search . '%');
         }
 
+=======
+        $query = DataKecamatanModel::query()
+            ->leftJoin('master_kabupaten_kota as a', 'master_kecamatan.kode_kabupaten_kota', '=', 'a.kode_kabupaten_kota')
+            ->select('master_kecamatan.*', 'a.nama_kabupaten_kota');
+
+        if ($search) {
+            $query->where('master_kecamatan.nama_kabupaten_kota', 'like', '%' . $search . '%');
+        }
+>>>>>>> a984a0b (fix import data)
         // Ambil hasil query
         $data = $query->paginate(10);
         return view('dashboard.data_kecamatan.view-data', [
@@ -58,6 +73,10 @@ class DataKecamatanController extends Controller
             'menu' => 'Data Teritory',
             'page' => 'Tambah Data Kecamatan',
             'breadcrumbs' => $breadcrumbs,
+<<<<<<< HEAD
+=======
+            'districtList' => DataKabupatenKotaModel::pluck('nama_kabupaten_kota', 'kode_kabupaten_kota')->toArray(),
+>>>>>>> a984a0b (fix import data)
         ]);
     }
 
@@ -141,4 +160,26 @@ class DataKecamatanController extends Controller
     {
         return Excel::download(new DataKecamatanExport(), 'laporan_data_kecamatan_' . Carbon::now()->format('Y_m_d_H_i_s') . '.xlsx');
     }
+<<<<<<< HEAD
+=======
+    public function import(Request $request)
+    {
+        $request->validate([
+            'data_excel' => 'required|mimes:xlsx,csv,xls',
+        ]);
+
+        Excel::import(new KecamatanImport, $request->file('data_excel'));
+
+        return redirect()->route('data-kecamatan.index')->with('success', 'Data kecamatan berhasil diimport.');
+    }
+    public function download()
+    {
+        $filePath = storage_path("app/public/template-excel/template_data-kecamatan.xlsx");
+        if (!file_exists($filePath)) {
+            abort(404, 'File tidak ditemukan');
+        }
+
+        return response()->download($filePath);
+    }
+>>>>>>> a984a0b (fix import data)
 }

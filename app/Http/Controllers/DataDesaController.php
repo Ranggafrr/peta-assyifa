@@ -4,7 +4,13 @@ namespace App\Http\Controllers;
 
 use App\Exports\DataDesaExport;
 use App\Http\Requests\DataDesaRequest;
+<<<<<<< HEAD
 use App\Models\DataDesaModel;
+=======
+use App\Imports\DesaImport;
+use App\Models\DataDesaModel;
+use App\Models\DataKecamatanModel;
+>>>>>>> a984a0b (fix import data)
 use Carbon\Carbon;
 use Illuminate\Http\Request;
 use Maatwebsite\Excel\Facades\Excel;
@@ -24,12 +30,22 @@ class DataDesaController extends Controller
         ];
 
         $search = $request->get('query');
+<<<<<<< HEAD
         $query = DataDesaModel::query();
 
         if ($search) {
             $query->where('nama_desa', 'like', '%' . $search . '%')->orWhere('kode_desa', 'like', '%' . $search . '%')->orWhere('kode_kecamatan', 'like', '%' . $search . '%');
         }
 
+=======
+        $query = DataDesaModel::query()
+            ->leftJoin('master_kecamatan as a', 'master_desa.kode_kecamatan', '=', 'a.kode_kecamatan')
+            ->select('master_desa.*', 'a.nama_kecamatan');
+
+        if ($search) {
+            $query->where('master_desa.nama_desa', 'like', '%' . $search . '%')->orWhere('master_desa.kode_desa', 'like', '%' . $search . '%')->orWhere('a.nama_kecamatan', 'like', '%' . $search . '%');
+        }
+>>>>>>> a984a0b (fix import data)
         // Ambil hasil query
         $data = $query->paginate(10);
         return view('dashboard.data_desa.view-data', [
@@ -58,6 +74,10 @@ class DataDesaController extends Controller
             'menu' => 'Data Teritory',
             'page' => 'Tambah Data Desa',
             'breadcrumbs' => $breadcrumbs,
+<<<<<<< HEAD
+=======
+            'districtList' => DataKecamatanModel::pluck('nama_kecamatan', 'kode_kecamatan')->toArray(),
+>>>>>>> a984a0b (fix import data)
         ]);
     }
 
@@ -103,6 +123,10 @@ class DataDesaController extends Controller
             'page' => 'Edit Data Desa',
             'breadcrumbs' => $breadcrumbs,
             'data' => $data,
+<<<<<<< HEAD
+=======
+            'districtList' => DataKecamatanModel::pluck('nama_kecamatan', 'kode_kecamatan')->toArray(),
+>>>>>>> a984a0b (fix import data)
         ]);
     }
 
@@ -141,4 +165,26 @@ class DataDesaController extends Controller
     {
         return Excel::download(new DataDesaExport(), 'laporan_data_desa_' . Carbon::now()->format('Y_m_d_H_i_s') . '.xlsx');
     }
+<<<<<<< HEAD
+=======
+    public function import(Request $request)
+    {
+        $request->validate([
+            'data_excel' => 'required|mimes:xlsx,csv,xls',
+        ]);
+
+        Excel::import(new DesaImport, $request->file('data_excel'));
+
+        return redirect()->route('data-desa.index')->with('success', 'Data desa berhasil diimport.');
+    }
+    public function download()
+    {
+        $filePath = storage_path("app/public/template-excel/template_data-desa.xlsx");
+        if (!file_exists($filePath)) {
+            abort(404, 'File tidak ditemukan');
+        }
+
+        return response()->download($filePath);
+    }
+>>>>>>> a984a0b (fix import data)
 }

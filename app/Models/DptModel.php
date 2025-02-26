@@ -14,7 +14,11 @@ class DptModel extends Model
     protected $fillable = [
         'nama',
         'jenis_kelamin',
+<<<<<<< HEAD
         'tanggal_lahir',
+=======
+        'usia',
+>>>>>>> a984a0b (fix import data)
         'dusun_jalan_alamat',
         'rt',
         'rw',
